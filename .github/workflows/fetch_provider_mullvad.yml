@@ -1,9 +1,8 @@
 name: Fetch Mullvad Servers
 
 on:
-  #schedule:
-  #  - cron: '0 0 * * 1' # At 00:00 on Monday
-  workflow_dispatch:
+  schedule:
+    - cron: '0 */3 * * *' # At minute 0 past every 3rd hour
 
 jobs:
   build:
