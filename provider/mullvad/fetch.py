@@ -67,7 +67,8 @@ filtered_relays = [relay for relay in filtered_relays if relay.get("active") == 
 filtered_relays = [relay for relay in filtered_relays if relay.get("owned") == True]
 filtered_relays = [relay for relay in filtered_relays if relay.get("status_messages") == []]
 
-output_dir = "owned_stable"
+script_dir = os.path.dirname(os.path.abspath(__file__))
+output_dir = os.path.join(script_dir, "owned_stable")
 if os.path.exists(output_dir):
     shutil.rmtree(output_dir)
 os.makedirs(output_dir)
