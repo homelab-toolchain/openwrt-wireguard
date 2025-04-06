@@ -28,8 +28,8 @@ PUBLIC_KEY=$(jq -r ".[$RANDOM_INDEX].pubkey" "$JSON_FILE")
 # --------------------------------
 # Configure Wireguard Peer
 # --------------------------------
-for i in $(uci show network | grep '=wireguard_wg0' | cut -d'[' -f2 | cut -d']' -f1 | sort -nr); do uci delete network.@wireguard_wg0[$i]; done
-uci add network wireguard_wg0
+for i in $(uci show network | grep '=wireguard_wg0' | cut -d'[' -f2 | cut -d']' -f1 | sort -nr); do uci delete network.@wireguard_wg0[$i] > /dev/null 2>&1; done
+uci add network wireguard_wg0 > /dev/null 2>&1
 uci set network.@wireguard_wg0[0].description="$DESCRIPTION"
 uci set network.@wireguard_wg0[0].endpoint_host="$ENDPOINT_HOST"
 uci set network.@wireguard_wg0[0].endpoint_port="$ENDPOINT_PORT"
@@ -41,3 +41,5 @@ uci commit network
 /etc/init.d/network reload
 ifdown wg0 && ifup wg0
 # --------------------------------
+
+echo "Enabled the following wireguard peer: $DESCRIPTION"

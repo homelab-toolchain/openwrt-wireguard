@@ -70,7 +70,7 @@ uci set firewall.@zone[2].forward='REJECT'
 uci set firewall.@zone[2].masq='1'
 uci set firewall.@zone[2].mtu_fix='1'
 uci add_list firewall.@zone[2].network='wg0'
-for i in $(uci show firewall | grep '=forwarding' | cut -d'[' -f2 | cut -d']' -f1 | sort -nr); do uci delete firewall.@forwarding[$i]; done
+for i in $(uci show firewall | grep '=forwarding' | cut -d'[' -f2 | cut -d']' -f1 | sort -nr); do uci delete firewall.@forwarding[$i] > /dev/null 2>&1; done
 uci add firewall forwarding
 uci set firewall.@forwarding[0].src='lan'
 uci set firewall.@forwarding[0].dest='wireguard'
