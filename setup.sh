@@ -1,4 +1,5 @@
 #!/bin/ash
+# shellcheck shell=dash
 
 # --------------------------------
 # Based on:
@@ -9,7 +10,7 @@
 # Install Necessary Packages
 # --------------------------------
 opkg update
-opkg install luci-proto-wireguard wireguard-tools
+opkg install luci-proto-wireguard wireguard-tools jq coreutils-shuf
 /etc/init.d/network restart
 # --------------------------------
 
