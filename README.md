@@ -1,9 +1,15 @@
-# General
+<h1 align="center">Openwrt-Wireguard</h1>
+<h3 align="center">Wirguard Automation</h3>
 
-...
+<p align="center">
+<a href="#">
+<img src="https://img.shields.io/github/last-commit/homelab-toolchain/openwrt-wireguard/main?style=for-the-badge"/>
+</a>
+</p>
 
+---
 
-# Setup
+# How to Execute
 
 ```
 opkg update && opkg install git git-http
@@ -19,12 +25,17 @@ Optional:
 
 ```
 # cronjob
+...
 ```
 
-# Enable VPN Provider
+---
+
+# Connect to VPN Provider
 
 ## Mullvad
 
-```
-ash /openwrt-wireguard/provider/mullvad/setup.sh
-```
+Go to provider -> mullvad
+
+## Other
+
+...
